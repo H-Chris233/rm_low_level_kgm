@@ -1,0 +1,17 @@
+[package]
+name = "rm_low_level_kgm"
+version = "0.0.1"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.35", features = ["derive"] }
+colored = "3.0.0"
+walkdir = "2.5.0"
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+strip = true
+codegen-units = 1
+panic = "abort"
+
